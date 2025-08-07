@@ -4,7 +4,7 @@
 @section('content')
  <div class="max-w-6xl mx-auto px-6 py-16">
             <div class="mb-16 text-center">
-            <h1 class="text-3xl font-light tracking-wide text-gray-800 mb-4">Aplikasi Blog</h1>
+            <h1 class="text-3xl font-light tracking-wide text-gray-800 mb-4">About Aplikasi Blog</h1>
             <p class="text-gray-500 text-sm">
                 Platform Pembelajaran Pengaturcaraan</p>
             </div>
