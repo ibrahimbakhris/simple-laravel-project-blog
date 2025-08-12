@@ -1,83 +1,66 @@
-
- @extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
- <div class="max-w-6xl mx-auto px-6 py-16">
-            <div class="mb-16 text-center">
-            <h1 class="text-3xl font-light tracking-wide text-gray-800 mb-4">Contact</h1>
-            <p class="text-gray-500 text-sm">
-                Platform Pembelajaran Pengaturcaraan</p>
-            </div>
+<div class="max-w-4xl mx-auto px-6 py-16">
+    <div class="mb-12 text-center">
+        <h1 class="text-3xl font-light tracking-wide text-gray-800 mb-4">Hubungi Kami</h1>
+        <p class="text-gray-500 text-sm">
+            Ada soalan atau maklum balas? Kami sedia membantu anda.
+        </p>
+    </div>
 
-            <div class="mb-12">
-            <h2 class="text-2xl font-light text-gray-800 mb-2">Dari Blog Kami</h2>
-            <p class="text-gray-600 text-sm">
-                Belajar cara membangunkan kemahiran pengaturcaraan dan teknologi dengan panduan kami.</p>
+    {{-- Contact Info --}}
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-center">
+        <div>
+            <div class="text-blue-600 text-xl mb-2">
+                <i class="fas fa-map-marker-alt"></i>
             </div>
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <article class="bg-gray-50 rounded-lg p-6 hover:shadow-sm transition-shadow duration-200">
-                <div class="flex items-center gap-x-3 text-xs mb-4">
-                <time datetime="2024-12-15" class="text-gray-400">15 Dis 2024</time>
-                <span class="px-2 py-1 bg-blue-50 text-blue-600 rounded text-xs">Pembangunan Web</span>
-                </div>
-                <div class="mb-6">
-                <h3 class="text-lg font-medium text-gray-900 mb-3 leading-snug">
-                    <a href="#" class="hover:text-gray-600 transition-colors">
-                    Asas Laravel untuk Pemula
-                    </a>
-                </h3>
-                <p class="text-sm text-gray-600 leading-relaxed">Pelajari asas-asas Laravel dari awal hingga mahir. Panduan lengkap untuk memulakan projek pertama anda dengan kerangka kerja PHP yang popular ini. Termasuk tips dan trik untuk pembangunan yang berkesan.</p>
-                </div>
-                <div class="flex items-center gap-x-3 pt-4 border-t border-gray-100">
-                <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="w-8 h-8 rounded-full" />
-                <div class="text-xs">
-                    <p class="font-medium text-gray-900">Ahmad Rahman</p>
-                    <p class="text-gray-500">Pengajar Laravel</p>
-                </div>
-                </div>
-            </article>
-            <article class="bg-gray-50 rounded-lg p-6 hover:shadow-sm transition-shadow duration-200">
-                <div class="flex items-center gap-x-3 text-xs mb-4">
-                <time datetime="2024-12-10" class="text-gray-400">10 Dis 2024</time>
-                <span class="px-2 py-1 bg-green-50 text-green-600 rounded text-xs">Pangkalan Data</span>
-                </div>
-                <div class="mb-6">
-                <h3 class="text-lg font-medium text-gray-900 mb-3 leading-snug">
-                    <a href="#" class="hover:text-gray-600 transition-colors">
-                    Menguasai Eloquent ORM dalam Laravel
-                    </a>
-                </h3>
-                <p class="text-sm text-gray-600 leading-relaxed">Panduan komprehensif untuk menggunakan Eloquent ORM dengan berkesan. Pelajari relationship, query builder, dan tips optimisasi untuk aplikasi yang lebih pantas.</p>
-                </div>
-                <div class="flex items-center gap-x-3 pt-4 border-t border-gray-100">
-                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="w-8 h-8 rounded-full" />
-                <div class="text-xs">
-                    <p class="font-medium text-gray-900">Siti Nurhaliza</p>
-                    <p class="text-gray-500">Pembangun Backend</p>
-                </div>
-                </div>
-            </article>
-            <article class="bg-gray-50 rounded-lg p-6 hover:shadow-sm transition-shadow duration-200">
-                <div class="flex items-center gap-x-3 text-xs mb-4">
-                <time datetime="2024-12-05" class="text-gray-400">5 Dis 2024</time>
-                <span class="px-2 py-1 bg-purple-50 text-purple-600 rounded text-xs">Frontend</span>
-                </div>
-                <div class="mb-6">
-                <h3 class="text-lg font-medium text-gray-900 mb-3 leading-snug">
-                    <a href="#" class="hover:text-gray-600 transition-colors">
-                    Reka Bentuk Responsif dengan Tailwind CSS
-                    </a>
-                </h3>
-                <p class="text-sm text-gray-600 leading-relaxed">Pelajari cara mencipta antara muka pengguna yang menarik dan responsif menggunakan Tailwind CSS. Tips dan teknik terkini untuk reka bentuk web moden yang mesra mudah alih.</p>
-                </div>
-                <div class="flex items-center gap-x-3 pt-4 border-t border-gray-100">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="w-8 h-8 rounded-full" />
-                <div class="text-xs">
-                    <p class="font-medium text-gray-900">Farid Azman</p>
-                    <p class="text-gray-500">Pereka UI/UX</p>
-                </div>
-                </div>
-            </article>
-            </div>
+            <p class="font-semibold text-gray-800">Alamat</p>
+            <p class="text-sm text-gray-500">123 Jalan Teknologi, 50480 Kuala Lumpur, Malaysia</p>
         </div>
+        <div>
+            <div class="text-blue-600 text-xl mb-2">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <p class="font-semibold text-gray-800">E-mel</p>
+            <p class="text-sm text-gray-500">support@platformpengaturcaraan.my</p>
+        </div>
+        <div>
+            <div class="text-blue-600 text-xl mb-2">
+                <i class="fas fa-phone-alt"></i>
+            </div>
+            <p class="font-semibold text-gray-800">Telefon</p>
+            <p class="text-sm text-gray-500">+60 12-345 6789</p>
+        </div>
+    </div>
+
+    {{-- Contact Form --}}
+    <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+        <h2 class="text-xl font-medium text-gray-800 mb-6">Hantar Mesej</h2>
+        <form action="{{-- route('contact.submit') --}}" method="POST">
+            @csrf
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                <div>
+                    <label class="block text-sm text-gray-700 mb-1">Nama Penuh</label>
+                    <input type="text" name="name" class="w-full px-4 py-2 border border-gray-300 rounded" required>
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-700 mb-1">E-mel</label>
+                    <input type="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded" required>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm text-gray-700 mb-1">Subjek</label>
+                <input type="text" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded" required>
+            </div>
+            <div class="mb-6">
+                <label class="block text-sm text-gray-700 mb-1">Mesej</label>
+                <textarea name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded" required></textarea>
+            </div>
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
+                Hantar
+            </button>
+        </form>
+    </div>
+</div>
 @endsection

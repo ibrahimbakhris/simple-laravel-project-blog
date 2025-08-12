@@ -10,3 +10,11 @@ Route::get('/', function () {
 Route::get('/tentang-blog', function () {
     return view('about');
 })->name('about');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::get('/posts', function () {
+    return view('post');
+})->name('posts');
