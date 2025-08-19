@@ -27,6 +27,7 @@
             <div class="flex items-center gap-x-3 text-xs mb-4">
             <time datetime="2024-12-15" class="text-gray-400">{{ \Carbon\Carbon::parse($post['created_at'])->format('j M Y') }}</time>
             <span class="px-2 py-1 bg-blue-50 text-blue-600 rounded text-xs">{{ $post['category'] }}</span>
+            <a href="{{ route('posts.edit', $post['id']) }}" class="px-6 py-3 text-blue-100 no-underline bg-blue-500 rounded hover:bg-blue-600 hover:underline hover:text-blue-200">Edit</a>
             </div>
             <div class="mb-6">
             <h3 class="text-lg font-medium text-gray-900 mb-3 leading-snug">

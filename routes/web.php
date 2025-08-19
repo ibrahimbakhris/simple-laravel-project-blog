@@ -30,3 +30,13 @@ Route::get('posts/{slug}', [
     \App\Http\Controllers\PostController::class,
     'show'
 ])->name('posts.show');
+
+Route::get('posts/{id}/edit', [
+    \App\Http\Controllers\PostController::class,
+    'edit'
+])->name('posts.edit');
+
+Route::put('posts/{id}', [
+    \App\Http\Controllers\PostController::class,
+    'update'
+])->name('posts.update');

@@ -46,9 +46,28 @@ class PostController extends Controller
         return back()->with('success', 'Post created successfully!');
     }
 
-    public function update()
+    public function edit($id)
     {
+        $post = Post::find($id);
+        return view('posts.edit', compact('post'));
+    }
 
+    public function update(Request $request, $id)
+    {
+        // Input Validation.
+        $validatedData = $request->validate([
+            'slug' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'author' => 'required|string|max:255',
+            'author_info' => 'required|string|max:255',
+            'image' => 'required|string|max:2048',
+            'category' => 'required|string|max:255',
+        ]);
+
+        $post = Post::find($id);
+        $post->update($validatedData);
+        return redirect()->route('posts.index')->with('success', 'Post updated successfully.');
     }
 
     public function destroy($id)
