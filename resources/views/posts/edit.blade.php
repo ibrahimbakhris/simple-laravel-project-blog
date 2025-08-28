@@ -202,21 +202,16 @@
 </div>
 
 <script>
-// Auto-generate slug from title only if slug is empty
+// Auto-generate slug from title
 document.getElementById('title').addEventListener('input', function() {
     const title = this.value;
-    const slugField = document.getElementById('slug');
-
-    // Only auto-generate if slug field is empty
-    if (slugField.value.trim() === '') {
-        const slug = title
-            .toLowerCase()
-            .replace(/[^a-z0-9 -]/g, '')
-            .replace(/\s+/g, '-')
-            .replace(/-+/g, '-')
-            .trim('-');
-        slugField.value = slug;
-    }
+    const slug = title
+        .toLowerCase()
+        .replace(/[^a-z0-9 -]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .trim('-');
+    document.getElementById('slug').value = slug;
 });
 </script>
 @endsection

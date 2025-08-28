@@ -58,10 +58,13 @@ Route::delete('comments/{id}', [
     'destroy'
 ])->name('comments.destroy');
 
-Route::get('admin/dashboard', [
-    \App\Http\Controllers\DashboardController::class,
-    'index'
-])->name('admin.dashboard.index');
+
+Route::middleware('auth')->group(function() {
+    Route::get('admin/dashboard', [
+        \App\Http\Controllers\DashboardController::class,
+        'index'
+    ])->name('admin.dashboard.index');
+});
 
 Route::get('test', function() {
     // Ambil semua data
@@ -85,3 +88,29 @@ Route::get('test', function() {
 
     // dd($posts);
 });
+
+
+Route::get('login', [
+    \App\Http\Controllers\AuthController::class,
+    'showLogin'
+])->name('login');
+
+Route::post('login', [
+    \App\Http\Controllers\AuthController::class,
+    'login'
+])->name('login');
+
+Route::get('register', [
+    \App\Http\Controllers\AuthController::class,
+    'showRegister'
+])->name('register');
+
+Route::post('register', [
+    \App\Http\Controllers\AuthController::class,
+    'register'
+])->name('register.post');
+
+Route::post('logout', [
+    \App\Http\Controllers\AuthController::class,
+    'logout'
+])->name('logout');

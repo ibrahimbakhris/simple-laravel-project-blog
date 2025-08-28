@@ -88,7 +88,8 @@ class PostController extends Controller
 
         $post->update($validatedData);
 
-        return back()->with('success', 'Post updated successfully!');
+        return redirect()->route('posts.edit', $post->slug)->with('success', 'Post updated successfully!');
+        //return back()->with('success', 'Post updated successfully!');
     }
 
     public function destroy($slug)
