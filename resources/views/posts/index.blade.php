@@ -43,6 +43,7 @@
         </div>
         <!-- End -->
 
+        @can('create', App\Models\Post::class)
         <!-- Create Blog Button -->
         <div class="flex justify-center">
             <a href="{{ route('posts.create') }}"
@@ -53,6 +54,7 @@
                 Create New Post
             </a>
         </div>
+        @endcan
     </div>
 
     <!-- Search Results Info -->

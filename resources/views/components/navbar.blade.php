@@ -7,10 +7,14 @@
                     <a href="{{ route('welcome') }}" class="text-sm text-gray-600 hover:text-gray-900 transition-colors {{ request()->routeIs('welcome') ? 'text-red-900 font-bold' : '' }}">Laman Utama</a>
                     <a href="{{ route('about') }}" class="text-sm text-gray-600 hover:text-gray-900 transition-colors {{ request()->routeIs('about') ? 'text-red-900 font-bold' : '' }}">Tentang Blog</a>
                     <a href="{{ route('posts.index') }}" class="text-sm text-gray-600 hover:text-gray-900 transition-colors {{ request()->routeIs('posts.index') ? 'text-red-900 font-bold' : '' }}">Blog Posts</a>
+                    @can('is-admin')
+                    <a href="{{ route('admin.dashboard.index') }}" class="text-sm text-gray-600 hover:text-gray-900 transition-colors {{ request()->routeIs('admin.dashboard.index') ? 'text-red-900 font-bold' : '' }}">Dashboard</a>
+                    @endcan
                 </div>
             </div>
             <div class="flex items-center space-x-4">
                 @auth
+                    <span class="text-sm text-gray-600"><a href="{{ route('profile.edit') }}">Profile</a></span>
                     <span class="text-sm text-gray-600">Hello, {{ Auth::user()->name }}</span>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

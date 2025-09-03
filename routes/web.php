@@ -58,7 +58,6 @@ Route::delete('comments/{id}', [
     'destroy'
 ])->name('comments.destroy');
 
-
 Route::middleware('auth')->group(function() {
     Route::get('admin/dashboard', [
         \App\Http\Controllers\DashboardController::class,
@@ -89,7 +88,6 @@ Route::get('test', function() {
     // dd($posts);
 });
 
-
 Route::get('login', [
     \App\Http\Controllers\AuthController::class,
     'showLogin'
@@ -114,3 +112,14 @@ Route::post('logout', [
     \App\Http\Controllers\AuthController::class,
     'logout'
 ])->name('logout');
+
+
+Route::get('profile', [
+    \App\Http\Controllers\ProfileController::class,
+    'edit'
+])->name('profile.edit');
+
+Route::put('profile', [
+    \App\Http\Controllers\ProfileController::class,
+    'update'
+])->name('profile.update');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class PostController extends Controller
 {
@@ -34,6 +35,7 @@ class PostController extends Controller
     public function show($slug)
     {
         $post = Post::with(['user', 'comments'])->where('slug', $slug)->firstOrFail();
+
         return view('posts.show', [
             'post' => $post
         ]);
@@ -42,6 +44,9 @@ class PostController extends Controller
     public function edit($slug)
     {
         $post = Post::where('slug', $slug)->firstOrFail();
+
+        Gate::authorize('update', $post);
+
         $users = User::all();
         return view('posts.edit', [
             'post' => $post,
@@ -51,12 +56,14 @@ class PostController extends Controller
 
     public function create()
     {
+        Gate::authorize('create', Post::class);
         $users = User::all();
         return view('posts.create', compact('users'));
     }
 
     public function store(Request $request)
     {
+        Gate::authorize('create', Post::class);
         // Input Validation.
         $validatedData = $request->validate([
             'slug' => 'required|string|max:255|unique:posts,slug',
@@ -75,6 +82,7 @@ class PostController extends Controller
     public function update(Request $request, $slug)
     {
         $post = Post::where('slug', $slug)->firstOrFail();
+        Gate::authorize('update', $post);
 
         // Input Validation.
         $validatedData = $request->validate([
@@ -86,15 +94,20 @@ class PostController extends Controller
             'category' => 'required|string|max:255',
         ]);
 
+        if (Gate::check('is-author')) {
+            $validatedData['user_id'] = auth()->user()->id;
+        }
+
         $post->update($validatedData);
 
-        return redirect()->route('posts.edit', $post->slug)->with('success', 'Post updated successfully!');
-        //return back()->with('success', 'Post updated successfully!');
+        return redirect()->route('posts.edit', $post->slug)
+            ->with('success', 'Post updated successfully!');
     }
 
     public function destroy($slug)
     {
         $post = Post::where('slug', $slug)->firstOrFail();
+        Gate::authorize('delete', $post);
         $post->delete();
 
         return redirect()->route('posts.index')->with('success', 'Post deleted successfully!');
